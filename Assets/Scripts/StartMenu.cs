@@ -8,7 +8,10 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] private Transform _startCameraPoint;
     [SerializeField] private Transform _finishCameraPoint;
+    [SerializeField] private GameObject _vCam;
 
+    private DOTween _tween;
+    
     public bool IsGameStarted { get; private set; }
     public static StartMenu Instance { get; private set; }
 
@@ -29,7 +32,6 @@ public class StartMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(IsGameStarted);
         Camera.main.transform.position = _startCameraPoint.position;
         Camera.main.transform.rotation = _startCameraPoint.rotation;
     }
@@ -38,7 +40,7 @@ public class StartMenu : MonoBehaviour
     public void StartGame()
     {
         IsGameStarted = true;
-        Camera.main.transform.DOMove(_finishCameraPoint.position, 7f);
+        Camera.main.transform.DOMove(_finishCameraPoint.position, 7f).OnComplete(() => _vCam.SetActive(true));
         Camera.main.transform.DORotate(_finishCameraPoint.eulerAngles, 7f, RotateMode.Fast);
     }
 }
