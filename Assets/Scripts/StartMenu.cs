@@ -40,7 +40,7 @@ public class StartMenu : MonoBehaviour
     public void StartGame()
     {
         IsGameStarted = true;
-        Camera.main.transform.DOMove(_finishCameraPoint.position, 8f).OnComplete(() => _vCam.SetActive(true));
-        Camera.main.transform.DORotate(_finishCameraPoint.eulerAngles, 8f);
+        Camera.main.transform.DOMove(_finishCameraPoint.position, 6.5f).OnComplete(() => _vCam.SetActive(true));
+        Camera.main.transform.DORotate(_finishCameraPoint.eulerAngles, 6.5f);
     }
 }

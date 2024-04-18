@@ -128,7 +128,7 @@ public class AnimationStateController : MonoBehaviour
         _animator.speed = 1f;
         _animator.SetBool(_isGameStartedHash, true);
         
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(6.5f);
         _isGameStarted = true;
     }
 
@@ -297,20 +297,10 @@ public class AnimationStateController : MonoBehaviour
         {
             _animator.SetTrigger(_isAFKHash);
             _timer = 0;
-           // _isAFK = false;
         }
         else if (_isAFK && _timer < _timeToAFK)
         {
-            //_animator.SetBool(_isAFKHash, false);
-
             _timer += Time.deltaTime;
         }
-        else
-        {
-            //_animator.SetBool(_isAFKHash, false);
-        }
-        Debug.Log(_isAFK);
-        Debug.Log(_timer);
-        
     }
 }
