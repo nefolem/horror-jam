@@ -17,8 +17,8 @@ namespace StarterAssets
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
-		public bool cursorLocked = true;
-		public bool cursorInputForLook = true;
+		public bool cursorLocked;
+		public bool cursorInputForLook;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -28,8 +28,11 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
+			if(cursorInputForLook || StartMenu.Instance.IsGameStarted)
 			{
+				cursorLocked = true;
+				cursorInputForLook = true;
+				Cursor.visible = false;
 				LookInput(value.Get<Vector2>());
 			}
 		}

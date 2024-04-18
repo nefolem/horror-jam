@@ -69,7 +69,7 @@ public class AnimationStateController : MonoBehaviour
 
     private bool _isGameStarted;
     private float _timer = 0.0f;
-    [SerializeField] private float _timeToAFK = 5.0f;
+    [SerializeField] private float _timeToAFK = 10f;
     
     private void Awake()
     {
@@ -295,17 +295,22 @@ public class AnimationStateController : MonoBehaviour
     {
         if (_isAFK && _timer >= _timeToAFK)
         {
-            _animator.SetBool(_isAFKHash, true);
+            _animator.SetTrigger(_isAFKHash);
             _timer = 0;
+           // _isAFK = false;
+        }
+        else if (_isAFK && _timer < _timeToAFK)
+        {
+            //_animator.SetBool(_isAFKHash, false);
+
+            _timer += Time.deltaTime;
         }
         else
         {
-            _timer += Time.deltaTime;
+            //_animator.SetBool(_isAFKHash, false);
         }
-
-        if (!_isAFK)
-        {
-            _animator.SetBool(_isAFKHash, false);
-        }
+        Debug.Log(_isAFK);
+        Debug.Log(_timer);
+        
     }
 }
