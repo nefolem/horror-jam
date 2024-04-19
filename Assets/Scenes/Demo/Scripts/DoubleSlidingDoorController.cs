@@ -45,6 +45,8 @@ public class DoubleSlidingDoorController : MonoBehaviour {
 	[SerializeField]
 	public AudioClip doorClosingSoundClip;
 
+	[SerializeField] private float doorSoundVolumeScale = 0.4f;
+
 	private AudioSource audioSource;
 
 
@@ -97,7 +99,7 @@ public class DoubleSlidingDoorController : MonoBehaviour {
 	IEnumerator OpenDoors () {
 
 		if (doorOpeningSoundClip != null) {
-			audioSource.PlayOneShot (doorOpeningSoundClip, 0.7F);
+			audioSource.PlayOneShot (doorOpeningSoundClip, doorSoundVolumeScale);
 		}
 
 		status = DoubleSlidingDoorStatus.Animating;
@@ -120,7 +122,7 @@ public class DoubleSlidingDoorController : MonoBehaviour {
 	IEnumerator CloseDoors () {
 
 		if (doorClosingSoundClip != null) {
-			audioSource.PlayOneShot(doorClosingSoundClip, 0.7F);
+			audioSource.PlayOneShot(doorClosingSoundClip, doorSoundVolumeScale);
 		}
 
 		status = DoubleSlidingDoorStatus.Animating;
