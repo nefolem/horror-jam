@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1184,8 +1188,9 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  CinemachineCameraTarget: {fileID: 3191824523844502674}
+  CinemachineCameraTarget: {fileID: 4803433304643017007}
   _crouchCameraPosition: {fileID: 8336012319526769584}
+  _standCameraPosition: {fileID: 1021481296227913905}
   TopClamp: 89
   BottomClamp: -89
 --- !u!114 &826048325823740578
