@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 5110171103599601674}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &7424681119913930268
 GameObject:
@@ -73,8 +73,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7424681119913930268}
   serializedVersion: 8
-  lengthInSec: 1.34
-  simulationSpeed: 0.6
+  lengthInSec: 5.3
+  simulationSpeed: 0.15
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
@@ -148,7 +148,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2.55
+      scalar: 3.83
       minScalar: 1.57
       maxCurve:
         serializedVersion: 2
@@ -183,7 +183,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -301,8 +301,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3.72
-      minScalar: 2.15
+      scalar: 7.01
+      minScalar: 4.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -642,15 +642,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 17
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.19, y: 1, z: 0.41}
+    m_Rotation: {x: 90, y: 0, z: 0}
+    m_Scale: {x: 1, y: 1, z: 6.33}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -729,7 +729,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2.58
+      value: 1.43
       mode: 0
       spread: 0
       speed:
@@ -848,7 +848,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 79.93
+      scalar: 26.7
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -954,7 +954,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1

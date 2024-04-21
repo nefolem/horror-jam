@@ -13,6 +13,7 @@ public class StartMenu : MonoBehaviour
     private DOTween _tween;
     
     public bool IsGameStarted { get; private set; }
+    public bool IsStartPressed { get; private set; }
     public static StartMenu Instance { get; private set; }
 
     private void Awake()
@@ -26,6 +27,7 @@ public class StartMenu : MonoBehaviour
             Instance = this;
         //}
         IsGameStarted = false;
+        IsStartPressed = false;
 
     }
 
@@ -39,8 +41,8 @@ public class StartMenu : MonoBehaviour
     // Update is called once per frame
     public void StartGame()
     {
-        IsGameStarted = true;
-        Camera.main.transform.DOMove(_finishCameraPoint.position, 6.5f).OnComplete(() => _vCam.SetActive(true));
-        Camera.main.transform.DORotate(_finishCameraPoint.eulerAngles, 6.5f);
+        IsStartPressed = true;
+        Camera.main.transform.DOMove(_finishCameraPoint.position, 5f).OnComplete(() => _vCam.SetActive(true));
+        Camera.main.transform.DORotate(_finishCameraPoint.eulerAngles, 5f).OnComplete(() => IsGameStarted = true);
     }
 }

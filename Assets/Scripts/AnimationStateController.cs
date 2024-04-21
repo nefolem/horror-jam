@@ -107,7 +107,7 @@ public class AnimationStateController : MonoBehaviour
 
     void Update()
     {
-        if (!_isGameStarted && StartMenu.Instance.IsGameStarted)
+        if (!_isGameStarted && StartMenu.Instance.IsStartPressed)
         {
             StartCoroutine(nameof(StartGameAnimation));
         }
@@ -128,7 +128,7 @@ public class AnimationStateController : MonoBehaviour
         _animator.speed = 1f;
         _animator.SetBool(_isGameStartedHash, true);
         
-        yield return new WaitForSeconds(6.5f);
+        yield return new WaitForSeconds(5f);
         _isGameStarted = true;
     }
 

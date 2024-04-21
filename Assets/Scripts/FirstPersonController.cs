@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using TMPro;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -16,6 +18,8 @@ namespace StarterAssets
 		public float MoveSpeed = 4.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
+		[Tooltip("Crouch speed of the character in m/s")]
+		public float CrouchSpeed = 2.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
@@ -46,6 +50,8 @@ namespace StarterAssets
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
 		public GameObject CinemachineCameraTarget;
+		[SerializeField] private Transform _crouchCameraPosition;
+		[SerializeField] private Transform _standCameraPosition;
 		[Tooltip("How far in degrees can you move the camera up")]
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
@@ -53,12 +59,13 @@ namespace StarterAssets
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
-
+		
 		// player
 		private float _speed;
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private bool _isCrouching;
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -71,6 +78,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private Tweener _tween;
 
 		private const float _threshold = 0.01f;
 
@@ -108,6 +116,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			CinemachineCameraTarget.transform.position = _standCameraPosition.position;
 		}
 
 		private void Update()
@@ -115,6 +124,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			
 		}
 
 		private void LateUpdate()
@@ -151,12 +161,51 @@ namespace StarterAssets
 			}
 		}
 
+		private void CameraPosition(bool isCrouching)
+		{
+			_tween.Kill();
+			if (isCrouching)
+			{
+				Debug.Log("down");
+				_tween = CinemachineCameraTarget.transform.DOMove(_crouchCameraPosition.position, 0.3f);
+			}
+			else
+			{
+				Debug.Log("up");
+				_tween = CinemachineCameraTarget.transform.DOMove(_standCameraPosition.position, 0.3f);
+			}
+		}
+
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			if (_input.crouch && !_isCrouching)
+			{
+				_isCrouching = _input.crouch;
+				CameraPosition(_isCrouching);
+			}
+			else if (!_input.crouch && _isCrouching)
+			{
+				_isCrouching = _input.crouch;
+				CameraPosition(_isCrouching);
+			}
+			
+			float targetSpeed;
+			if (_isCrouching)
+			{
+				targetSpeed = CrouchSpeed;
 
+			}
+			else if (_input.sprint)
+			{
+				targetSpeed = SprintSpeed;
+			}
+			else
+			{
+				targetSpeed = MoveSpeed;
+			}
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+			
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0

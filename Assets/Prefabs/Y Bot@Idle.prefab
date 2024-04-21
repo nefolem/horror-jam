@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021481296227913905}
   m_Layer: 6
-  m_Name: Finish Camera Point
+  m_Name: StandCameraPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,14 +23,76 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3191824523844502674}
-  m_LocalRotation: {x: 0.04529121, y: -0.0122818025, z: 0.00042643762, w: 0.99889827}
-  m_LocalPosition: {x: 0.008959134, y: 1.6390471, z: 0.123192966}
+  m_LocalRotation: {x: 0.045291223, y: -0.012281746, z: 0.00042644143, w: 0.9988983}
+  m_LocalPosition: {x: 0.008958896, y: 1.6390471, z: 0.12319296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1791871442944254068}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 5.192, y: -1.41, z: -0.015}
+--- !u!1 &4803433304643017007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8336452697243629290}
+  m_Layer: 6
+  m_Name: CameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8336452697243629290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803433304643017007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1791871442944254068}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6152814509868491963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8336012319526769584}
+  m_Layer: 6
+  m_Name: CrouchCameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8336012319526769584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152814509868491963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0339, y: 0.7965, z: 0.7025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1791871442944254068}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2257632620217534367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45,7 +107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1001,6 +1063,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1021481296227913905}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8336012319526769584}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8336452697243629290}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9013daf5db3c2334b9767b27707a682c, type: 3}
       insertIndex: -1
@@ -1039,7 +1107,7 @@ Animator:
   m_GameObject: {fileID: 1411264105245555406}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f4745fad4c0f3845bdce2cab5a3343d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9666c9e57e1772547b8ceb46ea96926e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1103,6 +1171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 4
   SprintSpeed: 6
+  CrouchSpeed: 2
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 1.2
@@ -1116,6 +1185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   CinemachineCameraTarget: {fileID: 3191824523844502674}
+  _crouchCameraPosition: {fileID: 8336012319526769584}
   TopClamp: 89
   BottomClamp: -89
 --- !u!114 &826048325823740578
@@ -1151,6 +1221,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  crouch: 0
   analogMovement: 0
   cursorLocked: 0
   cursorInputForLook: 0
